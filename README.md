@@ -4,7 +4,7 @@ A personal live virtual try-on app for your Mac webcam. The app runs on localhos
 
 ## Preview
 
-![TryOn Studio dark interface with the live fitting room and outfit upload panel](docs/screenshots/tryon-studio.png)
+![TryOn Studio dark interface with the live fitting room and outfit upload panel](docs/screenshots/tryon-studio.jpg)
 
 The fitting room and outfit controls before starting a live AI session.
 
