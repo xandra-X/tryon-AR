@@ -8,6 +8,15 @@ A personal live virtual try-on app for your Mac webcam. The app runs on localhos
 
 The fitting room and outfit controls before starting a live AI session.
 
+## Get your Decart API key
+
+1. Open the [Decart API Keys dashboard](https://platform.decart.ai/api-keys) and sign in or create a Decart account.
+2. Create an API key in the dashboard and copy it.
+3. Check your account has available API credits and access to the Lucy VTON real-time model. Live try-on uses paid Decart API credits.
+4. Start this app, open **Connection settings**, paste the key, and click **Use this key**.
+
+Use a **Decart** key for this app. The key stays in the current tab's memory; after refreshing or closing the tab, enter it again. Keep your key private and do not add it to this repository.
+
 ## Start
 
 Double-click `Start TryOn.command`, or run:
@@ -21,7 +30,7 @@ npm run dev
 
 Open the local URL printed by Vite (normally http://127.0.0.1:5173). Use Chrome or Edge for the best WebRTC compatibility.
 
-1. Get a Decart API key with available credits at https://platform.decart.ai.
+1. [Get a Decart API key](#get-your-decart-api-key) with available credits.
 2. Open **Connection settings** and paste the key. The app keeps it only in tab memory; refresh requires re-entry.
 3. Enable the camera and allow camera access.
 4. Upload or drop a JPG, PNG, or WebP clothing photo (maximum 15 MB). Add an optional outfit description.
