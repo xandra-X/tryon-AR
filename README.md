@@ -7,7 +7,8 @@ A personal live virtual try-on app for your Mac webcam. The app runs on localhos
 Double-click `Start TryOn.command`, or run:
 
 ```sh
-cd '/Users/phonpayephyopaing/ar tryon'
+git clone https://github.com/xandra-X/tryon-AR.git
+cd tryon-AR
 npm install
 npm run dev
 ```
