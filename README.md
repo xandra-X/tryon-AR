@@ -2,6 +2,12 @@
 
 A personal live virtual try-on app for your Mac webcam. The app runs on localhost; the actual AI runs on Decart's cloud, using the official `@decartai/sdk` and `lucy-vton-latest` model. It is not an offline model.
 
+## Preview
+
+![TryOn Studio dark interface with the live fitting room and outfit upload panel](docs/screenshots/tryon-studio.png)
+
+The fitting room and outfit controls before starting a live AI session.
+
 ## Start
 
 Double-click `Start TryOn.command`, or run:
