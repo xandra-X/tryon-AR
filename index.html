@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b10" />
+    <title>TryOn — Your fitting room</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <a class="brand" href="/" aria-label="TryOn Studio home"><span class="brand-symbol"
+                    aria-hidden="true">✳</span> tryon<span class="brand-edition">STUDIO</span></a>
+            <div class="header-note">
+                <span class="dot"></span> PERSONAL STUDIO
+                <span class="header-divider">/</span> REAL-TIME TRY-ON
+            </div>
+            <button id="settings" class="quiet">
+                <span class="settings-symbol" aria-hidden="true">⚙</span> Connection
+                settings
+            </button>
+        </header>
+        <main>
+            <section class="intro">
+                <div>
+                    <p class="eyebrow">THE WORLD IS YOUR WARDROBE</p>
+                    <h1>
+                        A new look.<br /><span class="hero-accent">In real time.</span>
+                    </h1>
+                </div>
+                <p class="intro-copy">
+                    <span class="intro-mark">↳</span> Your camera. Your imagination.<br />Step
+                    into something different.
+                </p>
+            </section>
+            <div class="workspace">
+                <div class="room-heading">
+                    <span><span class="tiny-cross">＋</span> THE FITTING ROOM</span><span>LIVE CANVAS <span
+                            class="heading-dot">•</span> 01</span>
+                </div>
+                <section class="stage" aria-label="Live fitting room">
+                    <div class="stage-top">
+                        <span id="status" role="status" aria-live="polite"><i></i> CAMERA OFF</span><span
+                            id="timer">00:00</span>
+                    </div>
+                    <div id="connection-feedback" role="alert" hidden>
+                        <span class="failure-title">Live try-on couldn’t start</span>
+                        <p id="connection-feedback-text"></p>
+                    </div>
+                    <video id="output" autoplay playsinline muted></video><video id="camera" autoplay playsinline
+                        muted></video>
+                    <div id="empty">
+                        <div class="body-outline" aria-hidden="true">
+                            <div class="orbital orbital-one"></div>
+                            <div class="orbital orbital-two"></div>
+                            <svg viewBox="0 0 260 290" fill="none">
+                                <defs>
+                                    <linearGradient id="body-fill" x1="70" y1="10" x2="200" y2="280"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#96acff" stop-opacity=".18" />
+                                        <stop offset=".6" stop-color="#5874d2" stop-opacity=".04" />
+                                        <stop offset="1" stop-color="#8aa4ff" stop-opacity=".13" />
+                                    </linearGradient>
+                                    <linearGradient id="body-stroke" x1="60" y1="10" x2="220" y2="290"
+                                        gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#b0bdff" stop-opacity=".85" />
+                                        <stop offset=".5" stop-color="#5b77ce" stop-opacity=".25" />
+                                        <stop offset="1" stop-color="#a3b7ff" stop-opacity=".8" />
+                                    </linearGradient>
+                                </defs>
+                                <ellipse cx="130" cy="268" rx="96" ry="13" stroke="#8192ce" stroke-opacity=".13" />
+                                <path d="M99 40c0-22 13-33 31-33s31 11 31 33c0 23-12 43-31 43S99 63 99 40Z"
+                                    fill="url(#body-fill)" stroke="url(#body-stroke)" />
+                                <path
+                                    d="m111 84-13 14-38 14c-13 5-19 17-21 34L28 234l25 4 19-77 4 102h108l4-102 19 77 25-4-11-88c-2-17-8-29-21-34l-38-14-13-14"
+                                    fill="url(#body-fill)" stroke="url(#body-stroke)" />
+                                <path
+                                    d="m98 98 32 30 32-30M130 128v135M76 155l-9-35m117 35 9-35M80 201h100M91 230h20m38 0h20"
+                                    stroke="url(#body-stroke)" />
+                                <path d="M23 99V79h20m174 0h20v20M23 243v20h20m174 0h20v-20" stroke="#7597ff"
+                                    stroke-opacity=".7" />
+                                <circle cx="130" cy="151" r="4" fill="#9caeff" />
+                                <circle cx="130" cy="151" r="13" stroke="#829eff" stroke-opacity=".25" />
+                            </svg><span class="figure-label">MAKE IT YOURS</span>
+                        </div>
+                        <h2>Meet your next self.</h2>
+                        <p>A whole new look is one camera away.</p>
+                        <button id="enable-camera" class="light">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <rect x="3" y="6" width="12" height="12" rx="3" />
+                                <path d="m15 10 6-3v10l-6-3" />
+                            </svg>
+                            Enable camera <span>↗</span></button><small><span class="lock-icon"
+                                aria-hidden="true">◇</span> Private
+                            preview. Just you and your camera.</small>
+                    </div>
+                    <div class="stage-bottom">
+                        <span id="stage-hint">Stand back so your upper body is visible</span><button id="fullscreen"
+                            class="icon" aria-label="Enter fullscreen">
+                            ⛶
+                        </button>
+                    </div>
+                </section>
+                <aside>
+                    <div class="panel-title">
+                        <span>YOUR NEXT LOOK</span><span class="step-count">01 — 02</span>
+                    </div>
+                    <label id="dropzone" tabindex="0" role="button" aria-label="Upload or drop a clothing image"><input
+                            id="file" type="file" accept="image/jpeg,image/png,image/webp" hidden /><img id="garment"
+                            alt="Selected outfit" hidden />
+                        <div id="drop-copy">
+                            <span class="plus"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                                    <path d="m11 5-7 5 5 7 3-2v13h12V15l3 2 5-7-7-5-4 3h-6l-4-3Z"
+                                        transform="translate(-2 0)" />
+                                    <path d="M12 5c0 5 8 5 8 0" />
+                                </svg><span>＋</span></span>
+                            <h3>Find it. Drop it. Wear it.</h3>
+                            <p>
+                                Drag in an outfit or
+                                <span class="browse-link">browse files</span>.<br />From
+                                everyday fits to alter egos.
+                            </p>
+                            <span class="file-hint">JPG, PNG, WEBP <span>·</span> UP TO 15 MB</span>
+                        </div>
+                    </label>
+                    <div id="garment-meta" hidden>
+                        <span id="filename"></span><button id="remove" class="quiet">Remove</button>
+                    </div>
+                    <label class="field-label" for="prompt">The finer details <span>OPTIONAL</span></label><textarea
+                        id="prompt" rows="3" placeholder="A vintage leather jacket. Silver hardware.
+A little main-character energy."></textarea>
+                    <div class="session-controls">
+                        <button id="start" class="primary" disabled>
+                            Start live try-on <span>↗</span></button><button id="apply" class="primary" hidden>
+                            Apply new outfit <span>↗</span></button><button id="stop" class="stop" hidden>
+                            ■ &nbsp; End live session</button><button id="camera-off" class="quiet" hidden>
+                            Turn off camera
+                        </button>
+                    </div>
+                    <div class="cloud-note">
+                        <span aria-hidden="true">✧</span>
+                        <p class="privacy">
+                            Made live with Decart AI.<br />Starting a session sends your
+                            video and outfit to Decart and uses paid API credits.
+                        </p>
+                    </div>
+                    <p id="message" role="status" aria-live="polite"></p>
+                </aside>
+            </div>
+            <footer>
+                <span><span class="footer-symbol">✳</span> REAL YOU. ENDLESS
+                    POSSIBILITIES.</span><span><span class="dot"></span> POWERED BY DECART LUCY VTON</span>
+            </footer>
+        </main>
+        <dialog id="settings-dialog">
+            <form id="settings-form">
+                <div class="dialog-top">
+                    <p class="eyebrow">CONNECT YOUR FITTING ROOM</p>
+                    <button type="button" id="close-settings" class="quiet" aria-label="Close settings">
+                        ✕
+                    </button>
+                </div>
+                <h2>Connect your imagination.</h2>
+                <p>
+                    Get an API key and add credits at
+                    <a href="https://platform.decart.ai" target="_blank" rel="noreferrer">platform.decart.ai ↗</a>.
+                </p>
+                <label class="field-label" for="api-key">Decart API key</label><input id="api-key" type="password"
+                    autocomplete="off" spellcheck="false" placeholder="Paste your API key" required />
+                <p class="privacy">
+                    Your key stays in this tab’s memory. It is never saved to disk or
+                    browser storage. This app is for personal use on localhost.
+                </p>
+                <button class="primary" type="submit">
+                    Use this key <span>↗</span>
+                </button>
+            </form>
+        </dialog>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
